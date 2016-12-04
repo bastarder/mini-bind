@@ -1,0 +1,19 @@
+<script src="./mini-bind.js"></script>
+<script>
+
+var testModule = Object.create(MiniBind);
+
+testModule
+  .register('console2', function(){
+    console.log(1);
+  })
+  .register('console1', function(console2){
+    console2();
+  })
+  .register('console3', function(console2, console1){
+    console2();
+    console1();
+  })
+  .run('console3');
+  
+</script>
